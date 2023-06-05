@@ -10,6 +10,17 @@ export const StyledFavorites = styled.aside`
   flex-direction: column;
   justify-content: space-between;
 
+  @media (max-width: 769px) {
+    position: fixed;
+    width: 90%;
+    height: 100vh;
+    margin: 4.9rem 1rem 0 1rem;
+  }
+
+  @media (max-width: 321px) {
+    margin: 5.5rem 1rem 0 1rem;
+  }
+
   .listBox {
     height: 75%;
   }

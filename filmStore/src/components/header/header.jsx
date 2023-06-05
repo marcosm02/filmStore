@@ -15,6 +15,7 @@ export const Header = () => {
     handleChange,
     searchEnter,
     searchButton,
+    cartAmount,
   } = useContext(FilmContext);
 
   return (
@@ -36,14 +37,15 @@ export const Header = () => {
       </div>
 
       <div className="favCartBox">
-        <button className="favCartBoxBtn" onClick={handleClickFav}>
+        <button className="favCartBoxBtn" id="favBtn" onClick={handleClickFav}>
           <FaHeart color={heartColor} className="buttonImg" />
         </button>
-        {/* <StyledBadge badgeContent={4} color="red"> */}
-        <button className="favCartBoxBtn" onClick={handleClickCart}>
-          <FaShoppingCart color={cartColor} className="buttonImg" />
-        </button>
-        {/* </StyledBadge> */}
+        <div className="shopCartBox">
+          {cartAmount !== 0 && <span>{cartAmount}</span>}
+          <button className="favCartBoxBtn" onClick={handleClickCart}>
+            <FaShoppingCart color={cartColor} className="buttonImg" />
+          </button>
+        </div>
       </div>
     </StyledHeader>
   );

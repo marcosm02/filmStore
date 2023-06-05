@@ -13,5 +13,9 @@ export const StyledContainer = styled.div`
     flex-wrap: wrap;
     justify-content: center;
     gap: 4rem;
+
+    @media (max-width: 769px) {
+      margin-top: 8rem;
+    }
   }
 `;

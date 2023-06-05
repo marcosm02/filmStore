@@ -10,6 +10,11 @@ export const StyledPaginate = styled.div`
   border: 0.15rem solid var(--color-primary);
   border-radius: 0.6rem;
 
+  @media (max-width: 769px) {
+    width: 90%;
+    padding: 0.2rem;
+  }
+
   .disabled {
     background-color: var(--color-grey-2);
     color: var(--color-grey-1);
@@ -27,6 +32,12 @@ export const StyledPaginate = styled.div`
     color: var(--color-grey-0);
     font-weight: 600;
 
+    @media (max-width: 769px) {
+      padding: 0.4rem 0.5rem;
+      width: 25%;
+      font-weight: 500;
+    }
+
     :hover {
       background-color: var(--color-primary-hover);
     }
@@ -36,5 +47,10 @@ export const StyledPaginate = styled.div`
     color: var(--color-primary);
     font-size: 1.15rem;
     font-weight: 600;
+
+    @media (max-width: 769px) {
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
   }
 `;
