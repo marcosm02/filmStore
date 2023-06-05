@@ -6,12 +6,13 @@ export const GlobalStyle = createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
         list-style: none;
-        font-family: 'DIN Next', sans-serif;
+        font-family: 'Inter', sans-serif;
     }
 
     body{
         width: 100%;
         height: 100%;
+        background-color: var(--color-grey-4);
     }
 
     #root{
@@ -29,19 +30,19 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     :root {
-        --color-primary: ##D1EFEC;
-        --color-secundary: #6558F5;
-        --color-secundary-hover: #5046C2;
+        --color-primary: #845ef7;
+        --color-primary-hover: #5f3dc4;
 
-        --color-grey-4: #293845;
-        --color-grey-3: #4B5C6B;
-        --color-grey-2: #9EADBA;
-        --color-grey-1: #C3CFD9;
-        --color-grey-0: #E3E8ED;
+        --color-grey-4: #121214;
+        --color-grey-3: #212529;
+        --color-grey-2: #343B41;
+        --color-grey-1: #868E96;
+        --color-grey-0: #F8F9FA;
 
-        --color-white: #FFFFFF
-        --color-bubble-notification: #FDF3D3
-        --color-green: #1AAE9F
-        --color-red-heart: #c40233
+        --color-white: #FFFFFF;
+        --color-bubble-notification: #FDF3D3;
+        --color-green: #1AAE9F;
+        --color-red-heart: #c40233;
+        --color-red-heart-hover: #450112;
     }
 `;
