@@ -18,11 +18,13 @@ export const FilmProvider = ({ children }) => {
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(null);
   const [inputValue, setInputValue] = useState("");
+  const [cartAmount, setCartAmount] = useState(0);
 
   useEffect(() => {
     loadFilms();
+    cartSize();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [page]);
+  }, [page, cartList]);
 
   async function loadFilms() {
     const token =
@@ -143,6 +145,7 @@ export const FilmProvider = ({ children }) => {
       const newFilm = { ...film, amount: 1 };
       setCartList([...cartList, newFilm]);
     }
+    cartSize();
   };
 
   const removeFilmCart = (filmId) => {
@@ -156,6 +159,7 @@ export const FilmProvider = ({ children }) => {
       const newList = cartList.filter((el) => el.id !== filmId);
       setCartList([...newList]);
     }
+    cartSize();
   };
 
   const checkoutPrice = () => {
@@ -208,10 +212,11 @@ export const FilmProvider = ({ children }) => {
     setFavList([]);
   };
 
-  // const cartSize = () => {
-  //   const size = cartList.reduce((total, film) => total + film.amount, 0);
-  //   return size;
-  // };
+  const cartSize = () => {
+    const size = cartList.reduce((total, film) => total + film.amount, 0);
+    console.log(size);
+    setCartAmount(size);
+  };
 
   return (
     <FilmContext.Provider
@@ -243,6 +248,7 @@ export const FilmProvider = ({ children }) => {
         searchEnter,
         searchButton,
         handleChange,
+        cartAmount,
       }}
     >
       {children}

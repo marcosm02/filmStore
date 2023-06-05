@@ -1,4 +1,3 @@
-// import { Badge } from "@material-ui/core";
 import styled from "styled-components";
 
 export const StyledHeader = styled.header`
@@ -12,6 +11,17 @@ export const StyledHeader = styled.header`
 
   @media (max-width: 769px) {
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    z-index: 1;
+    padding: 1rem 1rem;
+  }
+
+  @media (max-width: 321px) {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
   }
 
   .logo {
@@ -20,6 +30,8 @@ export const StyledHeader = styled.header`
     cursor: pointer;
 
     @media (max-width: 769px) {
+      width: 100vw;
+      text-align: center;
       margin: 0 auto;
       padding: 0 3rem;
       padding-bottom: 1rem;
@@ -41,7 +53,12 @@ export const StyledHeader = styled.header`
     }
 
     @media (max-width: 769px) {
-      width: 70%;
+      width: 60%;
+    }
+
+    @media (max-width: 321px) {
+      width: 60%;
+      margin-right: 0.5rem;
     }
 
     input {
@@ -73,27 +90,50 @@ export const StyledHeader = styled.header`
     gap: 1rem;
     height: max-content;
 
+    @media (max-width: 321px) {
+      /* padding: 0.5rem 0 0 0.5rem; */
+    }
+
+    .shopCartBox {
+      position: relative;
+
+      :hover {
+        transform: scale(1.25);
+        transition: 0.5s ease;
+      }
+
+      span {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: var(--color-bubble-notification);
+        border-radius: 50%;
+        width: 1rem;
+        padding: 0.1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 0.7rem;
+      }
+    }
+
+    #favBtn {
+      :hover {
+        transform: scale(1.25);
+        transition: 0.5s ease;
+      }
+    }
+
     .favCartBoxBtn {
       background-color: var(--color-grey-4);
       border: none;
+      padding: 0.5rem;
 
       .buttonImg {
         width: 1.5rem;
         height: 1.5rem;
         color: ${(props) => props.color};
-
-        :hover {
-          transform: scale(1.25);
-          transition: 0.5s ease;
-        }
       }
     }
   }
 `;
-
-// export const StyledBadge = styled(Badge)`
-//   .MuiBadge-badge {
-//     background-color: var(--color-bubble-notification);
-//     color: var(--color-grey-4);
-//   }
-// `;
