@@ -2,6 +2,7 @@ import { createContext, useState, useEffect } from "react";
 import api from "../service/api";
 import { format, parseISO } from "date-fns";
 import { enUS } from "date-fns/locale";
+import { useNavigate } from "react-router-dom";
 
 export const FilmContext = createContext({});
 
@@ -19,6 +20,10 @@ export const FilmProvider = ({ children }) => {
   const [totalPages, setTotalPages] = useState(null);
   const [inputValue, setInputValue] = useState("");
   const [cartAmount, setCartAmount] = useState(0);
+  const [client, setClient] = useState({});
+  const [showFormModal, setShowFormModal] = useState(false);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     loadFilms();
@@ -221,6 +226,18 @@ export const FilmProvider = ({ children }) => {
     setCartAmount(size);
   };
 
+  const loadModalForm = (data) => {
+    setClient(data);
+    setShowFormModal(true);
+  };
+
+  const endPurchase = () => {
+    navigate("/");
+    setShowFormModal(false);
+    setCartList([]);
+    handleClickCart();
+  };
+
   return (
     <FilmContext.Provider
       value={{
@@ -252,6 +269,10 @@ export const FilmProvider = ({ children }) => {
         searchButton,
         handleChange,
         cartAmount,
+        loadModalForm,
+        client,
+        showFormModal,
+        endPurchase,
       }}
     >
       {children}

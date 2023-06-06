@@ -47,44 +47,86 @@ export const StyledDiv = styled.div`
 
     .inputBox {
       width: 43%;
+      height: 400px;
+      display: flex;
+      flex-wrap: wrap;
 
       @media (max-width: 769px) {
         width: 100%;
       }
 
+      .inputs {
+        margin-bottom: 5px;
+        height: fit-content;
+
+        small {
+          color: red;
+          font-size: 0.8rem;
+        }
+      }
       input {
         padding: 0.5rem 0.4rem;
         border-radius: 0.4rem;
         outline: none;
-        margin-bottom: 1.5rem;
       }
 
+      #fullNameBox {
+        width: 100%;
+      }
       #fullName {
         width: 100%;
       }
-      #cpf {
+
+      #cpfBox {
         width: 48%;
         margin-right: 4%;
       }
-      #cell {
+      #cpf {
+        width: 100%;
+      }
+
+      #cellBox {
         width: 48%;
+      }
+      #cell {
+        width: 100%;
+      }
+
+      #emailBox {
+        width: 100%;
       }
       #email {
         width: 100%;
       }
-      #cep {
+
+      #cepBox {
         width: 23%;
         margin-right: 4%;
       }
-      #address {
+      #cep {
+        width: 100%;
+      }
+
+      #addressBox {
         width: 73%;
       }
-      #city {
+      #address {
+        width: 100%;
+      }
+
+      #cityBox {
         width: 48%;
         margin-right: 4%;
       }
-      #state {
+      #city {
+        width: 100%;
+      }
+
+      #stateBox {
         width: 48%;
+      }
+      #state {
+        width: 100%;
       }
     }
 
