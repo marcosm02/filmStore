@@ -133,6 +133,12 @@ export const StyledCart = styled.aside`
     }
   }
 
+  #disabled {
+    background-color: var(--color-grey-1);
+    color: var(--color-grey-2);
+    cursor: auto;
+  }
+
   .checkoutBtn {
     width: 100%;
     margin: 1rem auto 0;
