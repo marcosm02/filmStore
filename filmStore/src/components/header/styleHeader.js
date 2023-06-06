@@ -12,8 +12,9 @@ export const StyledHeader = styled.header`
   @media (max-width: 769px) {
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     position: fixed;
+    top: 0;
     z-index: 1;
     padding: 1rem 1rem;
   }
@@ -90,8 +91,12 @@ export const StyledHeader = styled.header`
     gap: 1rem;
     height: max-content;
 
+    @media (max-width: 769px) {
+      padding: 0 0 0 1.7rem;
+    }
+
     @media (max-width: 321px) {
-      /* padding: 0.5rem 0 0 0.5rem; */
+      padding: 0;
     }
 
     .shopCartBox {

@@ -2,10 +2,12 @@ import { FaTrash } from "react-icons/fa";
 import { StyledCart } from "./styleCart";
 import { useContext } from "react";
 import { FilmContext } from "../../contexts/FilmContext";
+import { useNavigate } from "react-router-dom";
 
 export const Cart = () => {
   const { cartList, setCartList, removeFilmCart, checkoutPrice } =
     useContext(FilmContext);
+  const navigate = useNavigate();
 
   return (
     <StyledCart>
@@ -46,7 +48,15 @@ export const Cart = () => {
           <p className="cartTotalValue">{checkoutPrice()}</p>
         </div>
 
-        <button className="checkoutBtn">Checkout</button>
+        {cartList.length !== 0 ? (
+          <button className="checkoutBtn" onClick={() => navigate("checkout")}>
+            Checkout
+          </button>
+        ) : (
+          <button id="disabled" className="checkoutBtn">
+            Checkout
+          </button>
+        )}
       </div>
     </StyledCart>
   );

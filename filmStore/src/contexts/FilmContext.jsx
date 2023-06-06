@@ -174,12 +174,16 @@ export const FilmProvider = ({ children }) => {
 
   const setNextPage = async () => {
     setPage(page + 1);
-    await loadFilms();
+    await loadFilms().then(() => {
+      window.scrollTo(0, 0);
+    });
   };
 
   const setPreviousPage = async () => {
     setPage(page - 1);
-    await loadFilms();
+    await loadFilms().then(() => {
+      window.scrollTo(0, 0);
+    });
   };
 
   const formatDate = (date) => {
@@ -214,7 +218,6 @@ export const FilmProvider = ({ children }) => {
 
   const cartSize = () => {
     const size = cartList.reduce((total, film) => total + film.amount, 0);
-    console.log(size);
     setCartAmount(size);
   };
 

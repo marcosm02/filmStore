@@ -4,6 +4,7 @@ import { FaHeart } from "react-icons/fa";
 import { StyledHeader } from "./styleHeader";
 import { useContext } from "react";
 import { FilmContext } from "../../contexts/FilmContext";
+import { useNavigate } from "react-router-dom";
 
 export const Header = () => {
   const {
@@ -17,34 +18,47 @@ export const Header = () => {
     searchButton,
     cartAmount,
   } = useContext(FilmContext);
+  const navigate = useNavigate();
 
   return (
     <StyledHeader>
-      <h1 className="logo" onClick={() => window.location.reload()}>
-        FilmStore
-      </h1>
+      {location.pathname === "/" ? (
+        <h1 className="logo" onClick={() => window.location.reload()}>
+          FilmStore
+        </h1>
+      ) : (
+        <h1 className="logo" onClick={() => navigate("/")}>
+          FilmStore
+        </h1>
+      )}
 
-      <div className="searchBox">
-        <input
-          placeholder="Pesquisar"
-          value={inputValue}
-          onChange={handleChange}
-          onKeyDown={searchEnter}
-        />
-        <button className="searchBoxBtn" onClick={searchButton}>
-          <GoSearch className="searchImg" />
-        </button>
-      </div>
+      {location.pathname !== "/checkout" && (
+        <div className="searchBox">
+          <input
+            placeholder="Pesquisar"
+            value={inputValue}
+            onChange={handleChange}
+            onKeyDown={searchEnter}
+          />
+          <button className="searchBoxBtn" onClick={searchButton}>
+            <GoSearch className="searchImg" />
+          </button>
+        </div>
+      )}
 
       <div className="favCartBox">
         <button className="favCartBoxBtn" id="favBtn" onClick={handleClickFav}>
           <FaHeart color={heartColor} className="buttonImg" />
         </button>
         <div className="shopCartBox">
-          {cartAmount !== 0 && <span>{cartAmount}</span>}
-          <button className="favCartBoxBtn" onClick={handleClickCart}>
-            <FaShoppingCart color={cartColor} className="buttonImg" />
-          </button>
+          {location.pathname === "/" && (
+            <>
+              {cartAmount !== 0 && <span>{cartAmount}</span>}
+              <button className="favCartBoxBtn" onClick={handleClickCart}>
+                <FaShoppingCart color={cartColor} className="buttonImg" />
+              </button>
+            </>
+          )}
         </div>
       </div>
     </StyledHeader>
